@@ -2,221 +2,153 @@ import { useState } from "react";
 
 export default function Projects() {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [imgIndex, setImgIndex] = useState(0);
 
-  // 6 DỰ ÁN GIỮ NGUYÊN
   const projects = [
-    "Bài tập 1",
-    "Bài tập 2",
-    "Bài tập 3",
-    "Bài tập 4",
-    "Bài tập 5",
-    "Bài tập 6"
+    "Bài tập 1: Thao tác cơ bản với tệp tin và thư mục",
+    "Bài tập 2: Tìm kiếm và đánh giá thông tin học thuật",
+    "Bài tập 3: Viết Prompt hiệu quả cho các tác vụ học tập",
+    "Bài tập 4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
+    "Bài tập 5: Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung",
+    "Bài tập 6: Sử dụng AI có trách nhiệm trong học tập và nghiên cứu"
   ];
 
-  // PLACEHOLDER MÔ TẢ NGẮN
   const descriptions = [
-    "Dự án 1: xây dựng giao diện web cơ bản với React.",
-    "Dự án 2: xử lý API và hiển thị dữ liệu động.",
-    "Dự án 3: bài tập về bảo mật và phân tích hệ thống.",
-    "Dự án 4: ứng dụng CRUD với backend đơn giản.",
-    "Dự án 5: demo UI/UX và component hóa giao diện.",
-    "Dự án 6: tổng hợp kiến thức và tối ưu hiệu năng."
+    ["Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục trên Windows/Linux."],
+    ["Phát triển kỹ năng tìm kiếm và đánh giá nguồn học thuật đáng tin cậy."],
+    ["Viết prompt hiệu quả để tối ưu mô hình AI trong học tập."],
+    ["Sử dụng công cụ online để làm việc nhóm hiệu quả."],
+    ["Ứng dụng AI tạo sinh trong sáng tạo nội dung số."],
+    ["Hiểu và áp dụng AI có trách nhiệm trong học tập."]
   ];
 
-  // ẢNH MỖI PROJECT
-  const projectImages = [
-    [
-      "https://via.placeholder.com/500x300?text=BT1-1",
-      "https://via.placeholder.com/500x300?text=BT1-2",
-      "https://via.placeholder.com/500x300?text=BT1-3"
-    ],
-    [
-      "https://via.placeholder.com/500x300?text=BT2-1",
-      "https://via.placeholder.com/500x300?text=BT2-2",
-      "https://via.placeholder.com/500x300?text=BT2-3"
-    ],
-    [
-      "https://via.placeholder.com/500x300?text=BT3-1",
-      "https://via.placeholder.com/500x300?text=BT3-2",
-      "https://via.placeholder.com/500x300?text=BT3-3"
-    ],
-    [
-      "https://via.placeholder.com/500x300?text=BT4-1",
-      "https://via.placeholder.com/500x300?text=BT4-2",
-      "https://via.placeholder.com/500x300?text=BT4-3"
-    ],
-    [
-      "https://via.placeholder.com/500x300?text=BT5-1",
-      "https://via.placeholder.com/500x300?text=BT5-2",
-      "https://via.placeholder.com/500x300?text=BT5-3"
-    ],
-    [
-      "https://via.placeholder.com/500x300?text=BT6-1",
-      "https://via.placeholder.com/500x300?text=BT6-2",
-      "https://via.placeholder.com/500x300?text=BT6-3"
-    ]
+  const colors = [
+    "#6366f1",
+    "#06b6d4",
+    "#22c55e",
+    "#f97316",
+    "#ec4899",
+    "#8b5cf6"
   ];
-
-  const openProject = (index) => {
-    setSelectedIndex(index);
-    setImgIndex(0);
-  };
-
-  const closeModal = () => {
-    setSelectedIndex(null);
-    setImgIndex(0);
-  };
-
-  const next = () => {
-    setImgIndex((prev) =>
-      prev < projectImages[selectedIndex].length - 1 ? prev + 1 : 0
-    );
-  };
-
-  const prev = () => {
-    setImgIndex((prev) =>
-      prev > 0 ? prev - 1 : projectImages[selectedIndex].length - 1
-    );
-  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Dự Án</h1>
+    <div style={{ padding: "60px 40px" }}>
+      {/* HEADER */}
+      <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Dự Án Học Tập
+      </h2>
 
       {/* GRID */}
-      <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
-        {projects.map((p, i) => (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "25px",
+          maxWidth: "1200px",
+          margin: "0 auto"
+        }}
+      >
+        {projects.map((title, i) => (
           <div
             key={i}
-            onClick={() => openProject(i)}
+            onClick={() => setSelectedIndex(i)}
             style={{
-              width: "180px",
-              padding: "15px",
-              border: "1px solid #ddd",
-              borderRadius: "10px",
+              background: "#fff",
+              borderRadius: "16px",
+              boxShadow: "0 8px 25px rgba(0,0,0,0.10)",
               cursor: "pointer",
-              textAlign: "center"
+              minHeight: "280px",
+              overflow: "hidden"
             }}
           >
-            <h3>{p}</h3>
-            <p style={{ fontSize: "12px", color: "#666" }}>
-              Click xem chi tiết
-            </p>
+            {/* HEADER COLOR */}
+            <div
+              style={{
+                background: colors[i],
+                color: "white",
+                padding: "14px",
+                fontWeight: "bold"
+              }}
+            >
+              {title}
+            </div>
+
+            {/* BODY */}
+            <div style={{ padding: "18px" }}>
+              <ul style={{ paddingLeft: "18px", color: "#444", lineHeight: "1.7" }}>
+                {descriptions[i].map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+
+              <p style={{ fontSize: "12px", color: "#888", marginTop: "10px" }}>
+                Click để mở trang →
+              </p>
+            </div>
           </div>
         ))}
       </div>
 
-{selectedIndex !== null && (
-  <div
-    onClick={closeModal}
-    style={{
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.65)",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 999
-    }}
-  >
-    <div
-      onClick={(e) => e.stopPropagation()}
-      style={{
-        width: "80%",          // 🔥 TO HƠN
-        maxWidth: "900px",
-        height: "80vh",        // 🔥 CAO HƠN
-        background: "#fff",
-        borderRadius: "16px",
-        padding: "25px",
-        position: "relative",
-        boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between"
-      }}
-    >
-      {/* ❌ CLOSE BUTTON (ĐẸP HƠN) */}
-      <button
-        onClick={closeModal}
-        style={{
-          position: "absolute",
-          top: "12px",
-          right: "12px",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          border: "none",
-          background: "#111",
-          color: "#fff",
-          fontSize: "18px",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "0.2s"
-        }}
-        onMouseOver={(e) => (e.target.style.background = "#444")}
-        onMouseOut={(e) => (e.target.style.background = "#111")}
-      >
-        ✕
-      </button>
-
-      {/* TITLE */}
-      <h2 style={{ marginBottom: "5px" }}>
-        {projects[selectedIndex]}
-      </h2>
-
-      <p style={{ color: "#666", fontSize: "14px" }}>
-        {descriptions[selectedIndex]}
-      </p>
-
-      {/* IMAGE VIEWER */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "15px"
-        }}
-      >
-        <button onClick={prev}>⬅</button>
-
-        <img
-          src={projectImages[selectedIndex][imgIndex]}
-          alt=""
+      {/* ================= POPUP MODAL (FIXED BIG SIZE) ================= */}
+      {selectedIndex !== null && (
+        <div
+          onClick={() => setSelectedIndex(null)}
           style={{
-            width: "100%",
-            maxHeight: "420px",
-            objectFit: "contain",
-            borderRadius: "12px"
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 999
           }}
-        />
-
-        <button onClick={next}>➡</button>
-      </div>
-
-      {/* DOTS */}
-      <div style={{ textAlign: "center", marginTop: "10px" }}>
-        {projectImages[selectedIndex].map((_, i) => (
-          <span
-            key={i}
-            onClick={() => setImgIndex(i)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
             style={{
-              cursor: "pointer",
-              margin: "0 5px",
-              fontSize: "22px",
-              color: i === imgIndex ? "#000" : "#ccc"
+              width: "90vw",
+              height: "90vh",
+              background: "#fff",
+              borderRadius: "18px",
+              padding: "30px",
+              overflowY: "auto",
+              boxShadow: "0 25px 80px rgba(0,0,0,0.35)",
+              position: "relative"
             }}
           >
-            ●
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setSelectedIndex(null)}
+              style={{
+                position: "absolute",
+                top: "15px",
+                right: "15px",
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                border: "none",
+                cursor: "pointer",
+                background: "#111",
+                color: "#fff",
+                fontSize: "18px"
+              }}
+            >
+              ✕
+            </button>
+
+            {/* TITLE */}
+            <h2 style={{ marginBottom: "15px" }}>
+              {projects[selectedIndex]}
+            </h2>
+
+            {/* DESCRIPTION */}
+            <ul style={{ color: "#444", lineHeight: "1.8", fontSize: "15px" }}>
+              {descriptions[selectedIndex].map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
