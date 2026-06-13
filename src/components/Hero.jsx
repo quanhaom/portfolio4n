@@ -6,8 +6,8 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-	minHeight: "82vh",
-	padding: "80px 7vw 35px",
+        minHeight: "92vh",
+        padding: "105px 7vw 65px",
         background: "transparent",
         position: "relative",
         overflowX: "hidden",

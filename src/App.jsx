@@ -7,28 +7,14 @@ import Summary from "./components/Summary";
 function App() {
   return (
     <>
-      {/* NAVBAR cố định */}
       <Navbar />
 
-      {/* HERO / BÌA */}
-      <section id="hero">
+      <main>
         <Hero />
-      </section>
-
-      {/* INTRODUCE */}
-      <section id="introduce">
         <Introduce />
-      </section>
-
-      {/* PROJECTS */}
-      <section id="projects">
         <Projects />
-      </section>
-
-      {/* SUMMARY */}
-      <section id="summary">
         <Summary />
-      </section>
+      </main>
     </>
   );
 }

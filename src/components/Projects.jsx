@@ -22,7 +22,6 @@ export default function Projects() {
     ["AI ethics", "AI có trách nhiệm", "Đạo đức học thuật"]
   ];
 
-  /* 🔥 GIỮ NGUYÊN 100% NỘI DUNG CỦA BẠN */
   const popupContent = [
 `📌 BÀI 1 - THAO TÁC FILE
 
@@ -168,38 +167,14 @@ IV. Kết quả:
 - Bộ nguyên tắc AI cá nhân`
   ];
 
-const popupImages = [
-  [
-    "/images/bai1-1.png",
-    "/images/bai1-2.png",
-    "/images/bai1-3.png"
-  ],
-  [
-    "/images/bai2-1.png",
-    "/images/bai2-2.png",
-    "/images/bai2-3.png"
-  ],
-  [
-    "/images/bai3-1.png",
-    "/images/bai3-2.png",
-    "/images/bai3-3.png"
-  ],
-  [
-    "/images/bai4-1.png",
-    "/images/bai4-2.png",
-    "/images/bai4-3.png"
-  ],
-  [
-    "/images/bai5-1.png",
-    "/images/bai5-2.png",
-    "/images/bai5-3.png"
-  ],
-  [
-    "/images/bai6-1.png",
-    "/images/bai6-2.png",
-    "/images/bai6-3.png"
-  ]
-];
+  const popupImages = [
+    ["/images/bai1-1.png", "/images/bai1-2.png", "/images/bai1-3.png"],
+    ["/images/bai2-1.png", "/images/bai2-2.png", "/images/bai2-3.png"],
+    ["/images/bai3-1.png", "/images/bai3-2.png", "/images/bai3-3.png"],
+    ["/images/bai4-1.png", "/images/bai4-2.png", "/images/bai4-3.png"],
+    ["/images/bai5-1.png", "/images/bai5-2.png", "/images/bai5-3.png"],
+    ["/images/bai6-1.png", "/images/bai6-2.png", "/images/bai6-3.png"]
+  ];
 
   const colors = [
     "#6366f1",
@@ -228,22 +203,36 @@ const popupImages = [
   };
 
   return (
-    <>
+    <section
+      id="projects"
+      style={{
+        padding: "64px 20px 72px",
+        background: "transparent",
+        boxSizing: "border-box"
+      }}
+    >
       {/* HEADER PAGE */}
-      <div style={{ textAlign: "center", margin: "40px 0 30px" }}>
+      <div style={{ textAlign: "center", margin: "0 0 30px" }}>
         <h1
           style={{
             fontSize: "34px",
             fontWeight: "800",
-            background:
-              "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
+            margin: "0 0 8px",
+            background: "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent"
           }}
         >
-         Bài học
+          Bài học
         </h1>
-        <p style={{ color: "#666" }}>
+
+        <p
+          style={{
+            color: "#666",
+            margin: 0,
+            fontSize: "15px"
+          }}
+        >
           Tổng hợp bài tập ứng dụng AI trong học tập
         </p>
       </div>
@@ -252,9 +241,9 @@ const popupImages = [
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "24px",
-          maxWidth: "1200px",
+          maxWidth: "1120px",
           margin: "0 auto"
         }}
       >
@@ -263,12 +252,20 @@ const popupImages = [
             key={i}
             onClick={() => openPopup(i)}
             style={{
-              background: "#fff",
+              background: "rgba(255,255,255,0.85)",
               borderRadius: "20px",
               cursor: "pointer",
-              minHeight: "270px",
+              minHeight: "235px",
               boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-              overflow: "hidden"
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.75)",
+              transition: "0.3s"
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
             }}
           >
             <div
@@ -276,14 +273,23 @@ const popupImages = [
                 background: colors[i],
                 color: "#fff",
                 padding: "14px",
-                fontWeight: "600"
+                fontWeight: "700",
+                lineHeight: "1.45"
               }}
             >
               {title}
             </div>
 
-            <div style={{ padding: "16px" }}>
-              <ul style={{ paddingLeft: "18px", color: "#444" }}>
+            <div style={{ padding: "16px 18px" }}>
+              <ul
+                style={{
+                  paddingLeft: "18px",
+                  color: "#444",
+                  margin: 0,
+                  lineHeight: "1.8",
+                  fontSize: "14px"
+                }}
+              >
                 {cardPreview[i].map((x, idx) => (
                   <li key={idx}>{x}</li>
                 ))}
@@ -304,7 +310,7 @@ const popupImages = [
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 999
+            zIndex: 9999
           }}
         >
           <div
@@ -330,7 +336,8 @@ const popupImages = [
                 borderRadius: "50%",
                 border: "none",
                 background: "#111",
-                color: "#fff"
+                color: "#fff",
+                cursor: "pointer"
               }}
             >
               ✕
@@ -340,8 +347,8 @@ const popupImages = [
               style={{
                 fontSize: "26px",
                 fontWeight: "800",
-                background:
-                  "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
+                paddingRight: "45px",
+                background: "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent"
               }}
@@ -349,12 +356,14 @@ const popupImages = [
               {projects[selectedIndex]}
             </h1>
 
-            {/* 🔥 GIỮ NGUYÊN FULL CONTENT */}
             <pre
               style={{
                 whiteSpace: "pre-wrap",
                 fontSize: "15px",
-                color: "#333"
+                color: "#333",
+                lineHeight: "1.7",
+                marginTop: "20px",
+                fontFamily: '"Be Vietnam Pro", "Segoe UI", Arial, sans-serif'
               }}
             >
               {popupContent[selectedIndex]}
@@ -363,13 +372,21 @@ const popupImages = [
             <div style={{ marginTop: "30px", textAlign: "center" }}>
               <h4>Hình minh hoạ</h4>
 
-              <div style={{ display: "flex", justifyContent: "center", gap: 10 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 10,
+                  marginTop: "12px"
+                }}
+              >
                 <button onClick={prevImg}>⬅</button>
 
                 <div
                   style={{
-                    width: "200px",
-                    height: "110px",
+                    width: "220px",
+                    height: "125px",
                     border: "1px dashed #ccc",
                     borderRadius: "10px",
                     display: "flex",
@@ -388,6 +405,6 @@ const popupImages = [
           </div>
         </div>
       )}
-    </>
+    </section>
   );
 }

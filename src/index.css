@@ -14,19 +14,16 @@ body,
   overflow-x: hidden;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 92px;
 }
 
 body {
+  overflow-y: auto;
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  color: #1e293b;
+
   background:
     radial-gradient(
       circle at 10% 10%,
@@ -46,15 +43,29 @@ body {
     #fff7fb;
 
   background-attachment: fixed;
-  color: #1e293b;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+  height: auto;
   max-width: none;
   margin: 0;
   padding: 0;
+  overflow: visible;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: visible;
 }
 
 /* ========================= */
@@ -79,7 +90,6 @@ nav {
   -webkit-backdrop-filter: blur(60px) saturate(180%);
 
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   border-radius: 999px;
 
   box-shadow:
@@ -99,11 +109,9 @@ nav {
   padding: 12px 24px;
 
   border-radius: 999px;
-
   text-decoration: none;
 
   color: #be185d;
-
   font-weight: 700;
 
   background: rgba(255, 255, 255, 0.1);
@@ -170,7 +178,8 @@ nav {
 
 /* ========================= */
 /* SECTION */
-/* Quan trọng: bỏ min-height 100vh */
+/* Không để padding toàn cục nữa */
+/* Vì từng component đã có padding riêng */
 /* ========================= */
 
 section {
@@ -180,176 +189,11 @@ section {
 }
 
 /* ========================= */
-/* HERO BACKUP CLASS */
-/* ========================= */
-
-.hero {
-  min-height: auto;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-}
-
-.hero img {
-  width: 220px;
-  height: 220px;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-  border: 5px solid rgba(255, 255, 255, 0.7);
-
-  box-shadow: 0 15px 50px rgba(236, 72, 153, 0.25);
-
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-size: 4rem;
-
-  background: linear-gradient(90deg, #ec4899, #8b5cf6);
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  color: #be185d;
-
-  font-weight: 500;
-
-  margin-bottom: 20px;
-}
-
-.hero p {
-  max-width: 700px;
-
-  color: #6b7280;
-
-  line-height: 1.8;
-}
-
-/* ========================= */
-/* BUTTON */
-/* ========================= */
-
-.btn {
-  margin-top: 30px;
-
-  display: inline-block;
-
-  padding: 14px 30px;
-
-  text-decoration: none;
-
-  color: white;
-
-  border-radius: 14px;
-
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
-
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-/* ========================= */
 /* TITLES */
 /* ========================= */
 
 section h1 {
   text-align: center;
-
-  background: linear-gradient(90deg, #ec4899, #8b5cf6);
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ========================= */
-/* PROJECTS */
-/* ========================= */
-
-.project-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 25px;
-}
-
-/* ========================= */
-/* GLASS CARDS */
-/* ========================= */
-
-.card {
-  background: rgba(255, 255, 255, 0.25);
-
-  backdrop-filter: blur(45px) saturate(180%);
-  -webkit-backdrop-filter: blur(45px) saturate(180%);
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-
-  border-radius: 24px;
-
-  padding: 25px;
-
-  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15);
-
-  transition: 0.35s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-
-  box-shadow: 0 20px 45px rgba(236, 72, 153, 0.15);
-}
-
-.card h3 {
-  color: #be185d;
-
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #6b7280;
-
-  line-height: 1.7;
-}
-
-/* ========================= */
-/* SUMMARY */
-/* ========================= */
-
-.summary {
-  max-width: 900px;
-  margin: auto;
-}
-
-.summary h2 {
-  color: #be185d;
-
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.summary p,
-.summary li {
-  line-height: 1.8;
-}
-
-.summary ul {
-  margin-left: 25px;
 }
 
 /* ========================= */
@@ -402,19 +246,15 @@ section h1 {
 }
 
 /* ========================= */
-/* FOOTER */
+/* FIX DOUBLE SCROLLBAR */
 /* ========================= */
 
-footer {
-  text-align: center;
-
-  padding: 40px;
-
-  margin-top: 30px;
-
-  background: rgba(255, 255, 255, 0.15);
-
-  backdrop-filter: blur(30px);
+.App,
+.app,
+main {
+  min-height: auto;
+  height: auto;
+  overflow: visible;
 }
 
 /* ========================= */
@@ -422,29 +262,26 @@ footer {
 /* ========================= */
 
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 85px;
+  }
+
   nav {
     gap: 5px;
     padding: 8px;
+    max-width: 94vw;
+    overflow-x: auto;
   }
 
   .nav-btn {
     padding: 10px 14px;
     font-size: 14px;
+    white-space: nowrap;
   }
 
-section {
-  min-height: auto;
-  padding: 28px 20px;
-  scroll-snap-align: start;
-}
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero img {
-    width: 160px;
-    height: 160px;
+  section {
+    min-height: auto;
+    padding: 0;
   }
 
   section h1 {

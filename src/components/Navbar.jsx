@@ -4,7 +4,9 @@ export default function Navbar() {
   const [active, setActive] = useState("introduce");
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(
+      "#introduce, #projects, #summary"
+    );
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -15,18 +17,15 @@ export default function Navbar() {
         });
       },
       {
-        threshold: 0.6,
+        threshold: 0.35,
+        rootMargin: "-20% 0px -55% 0px"
       }
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -34,33 +33,21 @@ export default function Navbar() {
     <nav>
       <a
         href="#introduce"
-        className={
-          active === "introduce"
-            ? "nav-btn active"
-            : "nav-btn"
-        }
+        className={active === "introduce" ? "nav-btn active" : "nav-btn"}
       >
         About
       </a>
 
       <a
         href="#projects"
-        className={
-          active === "projects"
-            ? "nav-btn active"
-            : "nav-btn"
-        }
+        className={active === "projects" ? "nav-btn active" : "nav-btn"}
       >
         Projects
       </a>
 
       <a
         href="#summary"
-        className={
-          active === "summary"
-            ? "nav-btn active"
-            : "nav-btn"
-        }
+        className={active === "summary" ? "nav-btn active" : "nav-btn"}
       >
         Summary
       </a>

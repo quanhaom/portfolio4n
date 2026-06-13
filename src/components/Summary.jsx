@@ -3,16 +3,13 @@ import { useEffect, useRef, useState } from "react";
 export default function Summary() {
   const mainFont = '"Be Vietnam Pro", "Segoe UI", Arial, sans-serif';
 
-  /* =========================
-     SUMMARY CARDS DATA
-  ========================== */
   const cards = [
     {
       title: "Những gì tôi đã học",
       icon: "🌸",
       desc: [
         "📁 Tổ chức tệp và thư mục một cách khoa học",
-        "🔎 Kỹ năng tìm kiếm nâng cao như site:, filetype:,...",
+        "🔎 Kỹ năng tìm kiếm nâng cao như :site, filetype,...",
         "💬 Viết prompt theo cấu trúc: vai trò – bối cảnh – yêu cầu",
         "🤝 Cộng tác nhóm qua Google Workspace và Trello",
         "🎨 Sáng tạo nội dung số với ChatGPT và Canva AI",
@@ -43,9 +40,6 @@ export default function Summary() {
   const refs = useRef([]);
   const [visible, setVisible] = useState([]);
 
-  /* =========================
-     SCROLL ANIMATION
-  ========================== */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -70,12 +64,12 @@ export default function Summary() {
   }, []);
 
   return (
-    <div
+    <section
       id="summary"
       style={{
         width: "100%",
         minHeight: "auto",
-        padding: "120px 20px 70px",
+        padding: "76px 20px 80px",
         background: "transparent",
         color: "#1e293b",
         overflowX: "hidden",
@@ -89,7 +83,7 @@ export default function Summary() {
       <div
         style={{
           textAlign: "center",
-          marginBottom: "55px"
+          marginBottom: "50px"
         }}
       >
         <h1
@@ -155,7 +149,6 @@ export default function Summary() {
               transition: "all 0.6s ease"
             }}
           >
-            {/* BLING BLING DECOR */}
             <div
               style={{
                 position: "absolute",
@@ -219,7 +212,7 @@ export default function Summary() {
       <div
         style={{
           maxWidth: "900px",
-          margin: "58px auto 0",
+          margin: "54px auto 0",
           paddingTop: "24px",
           borderTop: "1px solid rgba(100,116,139,0.25)",
           textAlign: "center",
@@ -239,6 +232,6 @@ export default function Summary() {
           kỹ năng số và sử dụng trí tuệ nhân tạo một cách có trách nhiệm.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

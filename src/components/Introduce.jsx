@@ -1,9 +1,9 @@
 export default function Introduce() {
   return (
-    <div
+    <section
       id="introduce"
       style={{
-        padding: "55px 20px 60px",
+        padding: "72px 20px 68px",
         textAlign: "center",
         background: "transparent"
       }}
@@ -154,6 +154,6 @@ export default function Introduce() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
