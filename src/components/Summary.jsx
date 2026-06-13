@@ -74,8 +74,8 @@ export default function Summary() {
       id="summary"
       style={{
         width: "100%",
-        minHeight: "100vh",
-        padding: "130px 20px 80px",
+        minHeight: "auto",
+        padding: "120px 20px 70px",
         background: "transparent",
         color: "#1e293b",
         overflowX: "hidden",
@@ -89,18 +89,19 @@ export default function Summary() {
       <div
         style={{
           textAlign: "center",
-          marginBottom: "60px"
+          marginBottom: "55px"
         }}
       >
         <h1
           style={{
             fontSize: "44px",
             fontWeight: "900",
-            lineHeight: "1.3",
+            lineHeight: "1.25",
             background: "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            margin: 0
+            margin: 0,
+            paddingBottom: "8px"
           }}
         >
           Tổng kết nhìn lại hành trình
@@ -109,7 +110,7 @@ export default function Summary() {
         <p
           style={{
             color: "#64748b",
-            marginTop: "12px",
+            marginTop: "10px",
             fontSize: "16px",
             fontWeight: "600"
           }}
@@ -128,7 +129,7 @@ export default function Summary() {
           margin: "0 auto",
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "26px",
+          gap: "28px",
           boxSizing: "border-box"
         }}
       >
@@ -144,7 +145,7 @@ export default function Summary() {
               border: "1px solid rgba(236,72,153,0.38)",
               borderRadius: "24px",
               padding: "28px",
-              minHeight: "420px",
+              minHeight: "395px",
               boxShadow: "0 18px 45px rgba(148,91,129,0.28)",
               position: "relative",
               overflow: "hidden",
@@ -169,7 +170,7 @@ export default function Summary() {
 
             <div
               style={{
-                fontSize: "44px",
+                fontSize: "42px",
                 marginBottom: "16px"
               }}
             >
@@ -191,7 +192,7 @@ export default function Summary() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "11px"
+                gap: "10px"
               }}
             >
               {item.desc.map((line, index) => (
@@ -200,7 +201,7 @@ export default function Summary() {
                   style={{
                     margin: 0,
                     fontSize: "14px",
-                    lineHeight: "1.75",
+                    lineHeight: "1.7",
                     color: "#e2e8f0"
                   }}
                 >
@@ -210,6 +211,33 @@ export default function Summary() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* =========================
+          FOOTNOTE
+      ========================== */}
+      <div
+        style={{
+          maxWidth: "900px",
+          margin: "58px auto 0",
+          paddingTop: "24px",
+          borderTop: "1px solid rgba(100,116,139,0.25)",
+          textAlign: "center",
+          color: "#64748b",
+          fontSize: "13px",
+          lineHeight: "1.7",
+          fontWeight: "500"
+        }}
+      >
+        <p style={{ margin: 0 }}>
+          © 2026 Ngô Cẩm Nhung · Digital Learning Portfolio · Created with React
+          & AI
+        </p>
+
+        <p style={{ margin: "8px 0 0" }}>
+          Portfolio này được xây dựng nhằm tổng kết quá trình học tập, rèn luyện
+          kỹ năng số và sử dụng trí tuệ nhân tạo một cách có trách nhiệm.
+        </p>
       </div>
     </div>
   );

@@ -6,11 +6,12 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        minHeight: "100vh",
-        padding: "110px 7vw 70px",
+	minHeight: "82vh",
+	padding: "80px 7vw 35px",
         background: "transparent",
         position: "relative",
-        overflow: "hidden",
+        overflowX: "hidden",
+        overflowY: "visible",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -24,7 +25,7 @@ export default function Hero() {
           top: "18%",
           left: "-8%",
           width: "120%",
-          height: "90px",
+          height: "80px",
           background:
             "linear-gradient(90deg, transparent, rgba(139,92,246,0.28), rgba(99,102,241,0.18), transparent)",
           transform: "rotate(-10deg)",
@@ -37,9 +38,9 @@ export default function Hero() {
         style={{
           position: "absolute",
           right: "-5%",
-          bottom: "22%",
+          bottom: "18%",
           width: "70%",
-          height: "80px",
+          height: "70px",
           background:
             "linear-gradient(90deg, transparent, rgba(99,102,241,0.2), rgba(236,72,153,0.16), transparent)",
           transform: "rotate(-12deg)",
@@ -53,7 +54,7 @@ export default function Hero() {
           position: "absolute",
           top: "24%",
           left: "34%",
-          fontSize: "38px",
+          fontSize: "36px",
           opacity: 0.28,
           transform: "rotate(-20deg)",
           zIndex: 1
@@ -67,7 +68,7 @@ export default function Hero() {
           position: "absolute",
           top: "36%",
           right: "35%",
-          fontSize: "44px",
+          fontSize: "40px",
           opacity: 0.22,
           transform: "rotate(18deg)",
           zIndex: 1
@@ -79,10 +80,10 @@ export default function Hero() {
       <div
         style={{
           position: "absolute",
-          bottom: "24%",
+          bottom: "22%",
           right: "10%",
-          width: "70px",
-          height: "70px",
+          width: "64px",
+          height: "64px",
           borderRadius: "50%",
           background: "rgba(250,204,21,0.18)",
           filter: "blur(1px)",
@@ -98,7 +99,7 @@ export default function Hero() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          gap: "60px",
+          gap: "48px",
           flexWrap: "wrap",
           position: "relative",
           zIndex: 2
@@ -107,7 +108,8 @@ export default function Hero() {
         {/* ================= LEFT CONTENT ================= */}
         <div
           style={{
-            flex: "1 1 520px",
+            flex: "1 1 500px",
+            maxWidth: "620px",
             textAlign: "left"
           }}
         >
@@ -118,36 +120,38 @@ export default function Hero() {
               textTransform: "uppercase",
               color: "#5b5f97",
               fontWeight: "900",
-              marginBottom: "18px"
+              marginBottom: "14px"
             }}
           >
             DIGITAL LEARNING PORTFOLIO
           </div>
 
           <h1
-  style={{
-    margin: 0,
-    fontFamily: displayFont,
-    fontSize: "clamp(50px, 6.8vw, 84px)",
-    lineHeight: "1.22",
-    fontWeight: "900",
-    letterSpacing: "-1px",
-    color: "#2e236c",
-    maxWidth: "560px"
-  }}
->
-  Ngô Cẩm
-  <br />
-  Nhung
-</h1>
+            style={{
+              margin: 0,
+              fontFamily: displayFont,
+              fontSize: "clamp(50px, 6.8vw, 84px)",
+              lineHeight: "1.24",
+              fontWeight: "900",
+              letterSpacing: "-1px",
+              color: "#2e236c",
+              maxWidth: "560px",
+              paddingBottom: "8px",
+              overflow: "visible"
+            }}
+          >
+            Ngô Cẩm
+            <br />
+            Nhung
+          </h1>
 
           <p
             style={{
               maxWidth: "620px",
-              marginTop: "28px",
+              marginTop: "18px",
               color: "#4b5563",
               fontSize: "17px",
-              lineHeight: "1.8",
+              lineHeight: "1.75",
               fontWeight: "500"
             }}
           >
@@ -162,10 +166,10 @@ export default function Hero() {
               display: "flex",
               gap: "12px",
               flexWrap: "wrap",
-              marginTop: "28px"
+              marginTop: "22px"
             }}
           >
-            {[ "AI Literacy"].map((tag, index) => (
+            {["MSSV: 25040984", "ULIS", "AI Literacy"].map((tag, index) => (
               <span
                 key={index}
                 style={{
@@ -190,7 +194,7 @@ export default function Hero() {
               display: "flex",
               gap: "14px",
               flexWrap: "wrap",
-              marginTop: "34px"
+              marginTop: "28px"
             }}
           >
             <a
@@ -243,7 +247,7 @@ export default function Hero() {
         {/* ================= RIGHT CARD ================= */}
         <div
           style={{
-            flex: "0 1 390px",
+            flex: "0 1 370px",
             display: "flex",
             justifyContent: "center"
           }}
@@ -251,8 +255,8 @@ export default function Hero() {
           <div
             style={{
               width: "100%",
-              maxWidth: "390px",
-              padding: "18px",
+              maxWidth: "370px",
+              padding: "16px",
               borderRadius: "28px",
               background: "rgba(255,255,255,0.55)",
               backdropFilter: "blur(18px)",
@@ -263,7 +267,7 @@ export default function Hero() {
           >
             <div
               style={{
-                height: "360px",
+                height: "330px",
                 borderRadius: "22px",
                 overflow: "hidden",
                 background: "rgba(236,229,206,0.8)",
@@ -285,8 +289,8 @@ export default function Hero() {
 
             <div
               style={{
-                marginTop: "16px",
-                padding: "16px 18px",
+                marginTop: "14px",
+                padding: "14px 16px",
                 borderRadius: "18px",
                 background: "rgba(255,255,255,0.72)",
                 boxShadow: "0 12px 30px rgba(148,91,129,0.12)"
@@ -313,8 +317,6 @@ export default function Hero() {
                   fontWeight: "600"
                 }}
               >
-                MSSV: 25040984 · ULIS
-                <br />
                 Ngành Ngôn ngữ Anh
               </div>
             </div>
@@ -322,10 +324,10 @@ export default function Hero() {
             <div
               style={{
                 position: "absolute",
-                right: "30px",
-                bottom: "92px",
-                width: "52px",
-                height: "52px",
+                right: "28px",
+                bottom: "88px",
+                width: "50px",
+                height: "50px",
                 borderRadius: "50%",
                 background: "rgba(250,204,21,0.25)"
               }}
