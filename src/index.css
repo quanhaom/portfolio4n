@@ -1,5 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap");
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #ffd6ec 0%, #f8edff 45%, #e9ddff 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+* {
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+}
 /* ========================= */
 /* RESET */
 /* ========================= */
@@ -446,4 +466,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+* {
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
 }

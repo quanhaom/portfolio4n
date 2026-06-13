@@ -1,110 +1,338 @@
 export default function Hero() {
+  const mainFont = '"Be Vietnam Pro", "Segoe UI", Arial, sans-serif';
+  const displayFont = '"Playfair Display", "Be Vietnam Pro", serif';
+
   return (
-    <div
+    <section
+      id="hero"
       style={{
-        height: "100vh",
+        minHeight: "100vh",
+        padding: "110px 7vw 70px",
+        background: "transparent",
+        position: "relative",
+        overflow: "hidden",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
-        textAlign: "center",
-        padding: "40px 20px",
-        background: "transparent"
+        justifyContent: "center",
+        fontFamily: mainFont
       }}
     >
-      {/* ================= HEADER (GRADIENT TEXT) ================= */}
+      {/* ================= BACKGROUND DECOR ================= */}
       <div
         style={{
-          fontSize: "34px",
-          fontWeight: "bold",
-          letterSpacing: "2px",
-          marginBottom: "25px",
-          background: "linear-gradient(90deg, #6366f1, #06b6d4, #22c55e)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent"
-        }}
-      >
-        PORTFOLIO HỌC TẬP - 2026
-      </div>
-
-      {/* ================= AVATAR ================= */}
-      <img
-        src="/avatar.jpg"
-        alt="avatar"
-        style={{
-          width: "170px",
-          height: "170px",
-          borderRadius: "50%",
-          objectFit: "cover",
-          marginBottom: "20px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+          position: "absolute",
+          top: "18%",
+          left: "-8%",
+          width: "120%",
+          height: "90px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(139,92,246,0.28), rgba(99,102,241,0.18), transparent)",
+          transform: "rotate(-10deg)",
+          filter: "blur(2px)",
+          zIndex: 0
         }}
       />
 
-      {/* ================= NAME (NỔI BẬT HƠN) ================= */}
-      <h1
-        style={{
-          marginBottom: "8px",
-          fontSize: "30px",
-          fontWeight: "700",
-          color: "#111"
-        }}
-      >
-        Ngô Cẩm Nhung
-      </h1>
-
-      <h2 style={{ color: "#555", fontWeight: "normal" }}>
-        Trường Đại học Ngoại ngữ – Đại học Quốc gia Hà Nội
-      </h2>
-
-      {/* ================= MSSV + TRƯỜNG (TO HƠN) ================= */}
       <div
         style={{
-          marginTop: "12px",
-          color: "#444",
-          fontSize: "16px",
-          lineHeight: "1.6",
-          fontWeight: "500"
+          position: "absolute",
+          right: "-5%",
+          bottom: "22%",
+          width: "70%",
+          height: "80px",
+          background:
+            "linear-gradient(90deg, transparent, rgba(99,102,241,0.2), rgba(236,72,153,0.16), transparent)",
+          transform: "rotate(-12deg)",
+          filter: "blur(3px)",
+          zIndex: 0
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          top: "24%",
+          left: "34%",
+          fontSize: "38px",
+          opacity: 0.28,
+          transform: "rotate(-20deg)",
+          zIndex: 1
         }}
       >
-        <div>MSSV: 25040984</div>
+        🦋
       </div>
 
-      {/* ================= DESCRIPTION ================= */}
-      <p
+      <div
         style={{
-          maxWidth: "600px",
-          marginTop: "15px",
-          color: "#555"
+          position: "absolute",
+          top: "36%",
+          right: "35%",
+          fontSize: "44px",
+          opacity: 0.22,
+          transform: "rotate(18deg)",
+          zIndex: 1
         }}
       >
-        Passionate about language education, communication,
-        intercultural exchange, and digital literacy.
-      </p>
+        🦋
+      </div>
 
-      {/* ================= BUTTON (GRADIENT) ================= */}
-      <a
-        href="#introduce"
+      <div
         style={{
-          marginTop: "25px",
-          padding: "12px 22px",
-          borderRadius: "10px",
-          textDecoration: "none",
-          fontWeight: "bold",
-          color: "white",
-          background: "linear-gradient(90deg, #6366f1, #06b6d4)",
-          boxShadow: "0 10px 25px rgba(99,102,241,0.3)",
-          transition: "0.3s"
+          position: "absolute",
+          bottom: "24%",
+          right: "10%",
+          width: "70px",
+          height: "70px",
+          borderRadius: "50%",
+          background: "rgba(250,204,21,0.18)",
+          filter: "blur(1px)",
+          zIndex: 1
         }}
-        onMouseOver={(e) =>
-          (e.target.style.transform = "scale(1.05)")
-        }
-        onMouseOut={(e) =>
-          (e.target.style.transform = "scale(1)")
-        }
+      />
+
+      {/* ================= HERO CONTENT ================= */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1180px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "60px",
+          flexWrap: "wrap",
+          position: "relative",
+          zIndex: 2
+        }}
       >
-        Show More ↓
-      </a>
-    </div>
+        {/* ================= LEFT CONTENT ================= */}
+        <div
+          style={{
+            flex: "1 1 520px",
+            textAlign: "left"
+          }}
+        >
+          <div
+            style={{
+              fontSize: "13px",
+              letterSpacing: "4px",
+              textTransform: "uppercase",
+              color: "#5b5f97",
+              fontWeight: "900",
+              marginBottom: "18px"
+            }}
+          >
+            DIGITAL LEARNING PORTFOLIO
+          </div>
+
+          <h1
+  style={{
+    margin: 0,
+    fontFamily: displayFont,
+    fontSize: "clamp(50px, 6.8vw, 84px)",
+    lineHeight: "1.22",
+    fontWeight: "900",
+    letterSpacing: "-1px",
+    color: "#2e236c",
+    maxWidth: "560px"
+  }}
+>
+  Ngô Cẩm
+  <br />
+  Nhung
+</h1>
+
+          <p
+            style={{
+              maxWidth: "620px",
+              marginTop: "28px",
+              color: "#4b5563",
+              fontSize: "17px",
+              lineHeight: "1.8",
+              fontWeight: "500"
+            }}
+          >
+            Một không gian portfolio ghi lại hành trình học tập, thực hành và
+            phát triển kỹ năng số trong môn Nhập môn Công nghệ số & Ứng dụng
+            Trí tuệ nhân tạo.
+          </p>
+
+          {/* ================= TAGS ================= */}
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              flexWrap: "wrap",
+              marginTop: "28px"
+            }}
+          >
+            {[ "AI Literacy"].map((tag, index) => (
+              <span
+                key={index}
+                style={{
+                  padding: "9px 16px",
+                  borderRadius: "999px",
+                  background: "rgba(255,255,255,0.6)",
+                  color: "#475569",
+                  fontWeight: "800",
+                  fontSize: "13px",
+                  boxShadow: "0 8px 22px rgba(148,91,129,0.12)",
+                  border: "1px solid rgba(255,255,255,0.7)"
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* ================= BUTTONS ================= */}
+          <div
+            style={{
+              display: "flex",
+              gap: "14px",
+              flexWrap: "wrap",
+              marginTop: "34px"
+            }}
+          >
+            <a
+              href="#introduce"
+              style={{
+                padding: "14px 24px",
+                borderRadius: "999px",
+                textDecoration: "none",
+                fontWeight: "900",
+                color: "white",
+                background: "linear-gradient(90deg, #6366f1, #7c3aed)",
+                boxShadow: "0 14px 30px rgba(99,102,241,0.28)",
+                transition: "0.3s"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              Xem nội dung ↓
+            </a>
+
+            <a
+              href="#summary"
+              style={{
+                padding: "14px 24px",
+                borderRadius: "999px",
+                textDecoration: "none",
+                fontWeight: "900",
+                color: "#4c1d95",
+                background: "rgba(255,255,255,0.72)",
+                boxShadow: "0 14px 30px rgba(148,91,129,0.14)",
+                border: "1px solid rgba(255,255,255,0.8)",
+                transition: "0.3s"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              Tổng kết hành trình
+            </a>
+          </div>
+        </div>
+
+        {/* ================= RIGHT CARD ================= */}
+        <div
+          style={{
+            flex: "0 1 390px",
+            display: "flex",
+            justifyContent: "center"
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "390px",
+              padding: "18px",
+              borderRadius: "28px",
+              background: "rgba(255,255,255,0.55)",
+              backdropFilter: "blur(18px)",
+              border: "1px solid rgba(255,255,255,0.75)",
+              boxShadow: "0 24px 60px rgba(99,102,241,0.18)",
+              position: "relative"
+            }}
+          >
+            <div
+              style={{
+                height: "360px",
+                borderRadius: "22px",
+                overflow: "hidden",
+                background: "rgba(236,229,206,0.8)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <img
+                src="/avatar.jpg"
+                alt="Ngô Cẩm Nhung"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover"
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                marginTop: "16px",
+                padding: "16px 18px",
+                borderRadius: "18px",
+                background: "rgba(255,255,255,0.72)",
+                boxShadow: "0 12px 30px rgba(148,91,129,0.12)"
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "12px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "#6366f1",
+                  fontWeight: "900",
+                  marginBottom: "6px"
+                }}
+              >
+                Sinh viên
+              </div>
+
+              <div
+                style={{
+                  color: "#475569",
+                  fontSize: "15px",
+                  lineHeight: "1.7",
+                  fontWeight: "600"
+                }}
+              >
+                MSSV: 25040984 · ULIS
+                <br />
+                Ngành Ngôn ngữ Anh
+              </div>
+            </div>
+
+            <div
+              style={{
+                position: "absolute",
+                right: "30px",
+                bottom: "92px",
+                width: "52px",
+                height: "52px",
+                borderRadius: "50%",
+                background: "rgba(250,204,21,0.25)"
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

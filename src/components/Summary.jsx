@@ -1,81 +1,42 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Summary() {
-  /* =========================
-     TIMELINE DATA
-  ========================== */
-  const timeline = [
-    {
-      title: "Bắt đầu dự án Portfolio",
-      time: "Phase 1",
-      desc:
-        "Khởi tạo dự án web, lựa chọn tự code thay vì WordPress/Wix để kiểm soát toàn bộ hệ thống."
-    },
-    {
-      title: "Xây dựng UI hệ thống",
-      time: "Phase 2",
-      desc:
-        "Thiết kế layout React, xây dựng card UI, popup, slider và grid hiện đại."
-    },
-    {
-      title: "Phát triển tính năng",
-      time: "Phase 3",
-      desc:
-        "Xử lý state, animation scroll reveal, popup chi tiết và chuyển ảnh."
-    },
-    {
-      title: "Tối ưu UI/UX",
-      time: "Phase 4",
-      desc:
-        "Thêm glassmorphism, gradient, hover effect và tối ưu trải nghiệm người dùng."
-    },
-    {
-      title: "Deploy dự án",
-      time: "Phase 5",
-      desc:
-        "Deploy website lên Vercel/GitHub và xử lý lỗi build, tối ưu production."
-    },
-    {
-      title: "Hoàn thiện & tổng kết",
-      time: "Final",
-      desc:
-        "Hoàn thiện portfolio, đánh giá kỹ năng đạt được và tối ưu cấu trúc code."
-    }
-  ];
+  const mainFont = '"Be Vietnam Pro", "Segoe UI", Arial, sans-serif';
 
   /* =========================
      SUMMARY CARDS DATA
   ========================== */
   const cards = [
     {
-      title: "🚀 Trải nghiệm thực hiện Portfolio",
-      desc:
-        "Quá trình xây dựng website từ thiết kế UI đến deploy thực tế, giúp hiểu rõ toàn bộ vòng đời sản phẩm web."
+      title: "Những gì tôi đã học",
+      icon: "🌸",
+      desc: [
+        "📁 Tổ chức tệp và thư mục một cách khoa học",
+        "🔎 Kỹ năng tìm kiếm nâng cao như site:, filetype:,...",
+        "💬 Viết prompt theo cấu trúc: vai trò – bối cảnh – yêu cầu",
+        "🤝 Cộng tác nhóm qua Google Workspace và Trello",
+        "🎨 Sáng tạo nội dung số với ChatGPT và Canva AI",
+        "🧠 Nhận thức về đạo đức và trách nhiệm khi sử dụng AI"
+      ]
     },
     {
-      title: " 🔥 Kiến thức & kỹ năng đạt được",
-      desc:
-        "React, state management, UI/UX design, animation, component architecture và deploy web."
+      title: "Bài học kinh nghiệm",
+      icon: "💖",
+      desc: [
+        "❓ Đặt câu hỏi rõ ràng giúp AI trả lời chính xác hơn",
+        "🗂️ Tổ chức trước, thực hiện sau để tiết kiệm thời gian",
+        "🎯 Tìm kiếm có chiến lược quan trọng hơn tìm kiếm thật nhiều",
+        "👥 Hợp tác online cần có quy tắc và phân công rõ ràng",
+        "🧩 AI là công cụ, người dùng vẫn cần có tư duy phản biện"
+      ]
     },
     {
-      title: "💎 Tư duy phát triển",
-      desc:
-        "Kỹ năng chia nhỏ vấn đề, xử lý logic UI, tối ưu trải nghiệm người dùng và tư duy hệ thống."
-    },
-    {
-      title: "🏆 Điểm tâm đắc",
-      desc:
-        "Tự xây dựng một sản phẩm hoàn chỉnh từ con số 0 với UI hiện đại và animation mượt."
-    },
-    {
-      title: "⚠️ Thử thách gặp phải",
-      desc:
-        "Xử lý state phức tạp, animation scroll, tối ưu UI/UX và deploy production."
-    },
-    {
-      title: "🏁 Kết luận",
-      desc:
-        "Dự án giúp nâng cao kỹ năng sử dụng công nghệ số và ứng dụng trí tuệ nhân tạo."
+      title: "Định hướng tương lai",
+      icon: "🌈",
+      desc: [
+        "Sau khóa học này, tôi nhận ra rằng việc sử dụng công nghệ một cách thông minh, có trách nhiệm và sáng tạo là kỹ năng cốt lõi của thời đại số.",
+        "Tôi sẽ tiếp tục nâng cao kỹ năng prompt engineering, khám phá thêm các công cụ AI mới, đồng thời luôn đặt ra câu hỏi về đạo đức khi ứng dụng trí tuệ nhân tạo vào cuộc sống và công việc."
+      ]
     }
   ];
 
@@ -83,7 +44,7 @@ export default function Summary() {
   const [visible, setVisible] = useState([]);
 
   /* =========================
-     SCROLL ANIMATION (2-WAY)
+     SCROLL ANIMATION
   ========================== */
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -101,38 +62,59 @@ export default function Summary() {
       { threshold: 0.2 }
     );
 
-    refs.current.forEach((el) => el && observer.observe(el));
+    refs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <div
+      id="summary"
       style={{
-        padding: "80px 20px",
-        background: "#0f172a",
+        width: "100%",
         minHeight: "100vh",
-        color: "#e2e8f0"
+        padding: "130px 20px 80px",
+        background: "transparent",
+        color: "#1e293b",
+        overflowX: "hidden",
+        boxSizing: "border-box",
+        fontFamily: mainFont
       }}
     >
       {/* =========================
           HEADER
       ========================== */}
-      <div style={{ textAlign: "center", marginBottom: "60px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          marginBottom: "60px"
+        }}
+      >
         <h1
           style={{
             fontSize: "44px",
             fontWeight: "900",
-            background:
-              "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
+            lineHeight: "1.3",
+            background: "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
             WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
+            WebkitTextFillColor: "transparent",
+            margin: 0
           }}
         >
-          Portfoilio Summary
+          Tổng kết nhìn lại hành trình
         </h1>
 
-        <p style={{ color: "#94a3b8", marginTop: "10px" }}>
-          Hành trình phát triển dự án & kỹ năng đạt được
+        <p
+          style={{
+            color: "#64748b",
+            marginTop: "12px",
+            fontSize: "16px",
+            fontWeight: "600"
+          }}
+        >
+          Hành trình phát triển kỹ năng số, tư duy AI và trải nghiệm học tập
         </p>
       </div>
 
@@ -141,11 +123,13 @@ export default function Summary() {
       ========================== */}
       <div
         style={{
+          width: "100%",
+          maxWidth: "1150px",
+          margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "22px",
-          maxWidth: "1100px",
-          margin: "0 auto 80px"
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "26px",
+          boxSizing: "border-box"
         }}
       >
         {cards.map((item, i) => (
@@ -154,125 +138,78 @@ export default function Summary() {
             data-index={i}
             ref={(el) => (refs.current[i] = el)}
             style={{
-              background: "rgba(30,41,59,0.6)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(148,163,184,0.2)",
-              borderRadius: "18px",
-              padding: "20px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+              background:
+                "linear-gradient(135deg, rgba(30,41,59,0.92), rgba(15,23,42,0.98))",
+              backdropFilter: "blur(14px)",
+              border: "1px solid rgba(236,72,153,0.38)",
+              borderRadius: "24px",
+              padding: "28px",
+              minHeight: "420px",
+              boxShadow: "0 18px 45px rgba(148,91,129,0.28)",
+              position: "relative",
+              overflow: "hidden",
 
               opacity: visible[i] ? 1 : 0,
-              transform: visible[i]
-                ? "translateY(0)"
-                : "translateY(40px)",
+              transform: visible[i] ? "translateY(0)" : "translateY(40px)",
               transition: "all 0.6s ease"
             }}
           >
-            <h3 style={{ fontSize: "16px", marginBottom: "8px" }}>
-              {item.title}
-            </h3>
-            <p style={{ fontSize: "13px", color: "#94a3b8" }}>
-              {item.desc}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* =========================
-          TIMELINE SECTION
-      ========================== */}
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <h2
-          style={{
-            textAlign: "center",
-            marginBottom: "40px",
-            fontSize: "26px"
-          }}
-        >
-          Project Timeline
-        </h2>
-
-        <div style={{ position: "relative" }}>
-          {/* CENTER LINE */}
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: 0,
-              bottom: 0,
-              width: "2px",
-              background:
-                "linear-gradient(#6366f1,#ec4899,#06b6d4)",
-              transform: "translateX(-50%)"
-            }}
-          />
-
-          {timeline.map((item, i) => (
+            {/* BLING BLING DECOR */}
             <div
-              key={i}
-              data-index={i + 100}
-              ref={(el) => (refs.current[i + 100] = el)}
               style={{
-                display: "flex",
-                justifyContent:
-                  i % 2 === 0 ? "flex-start" : "flex-end",
-                padding: "30px 0",
-                position: "relative"
+                position: "absolute",
+                top: "14px",
+                right: "18px",
+                fontSize: "22px",
+                opacity: 0.9
               }}
             >
-              {/* DOT */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  top: "40px",
-                  transform: "translateX(-50%)",
-                  width: "12px",
-                  height: "12px",
-                  borderRadius: "50%",
-                  background: "#0f172a",
-                  border: "3px solid #6366f1"
-                }}
-              />
+              ✨
+            </div>
 
-              {/* CARD */}
-              <div
-                style={{
-                  width: "45%",
-                  background: "rgba(30,41,59,0.6)",
-                  backdropFilter: "blur(10px)",
-                  border: "1px solid rgba(148,163,184,0.2)",
-                  borderRadius: "16px",
-                  padding: "16px",
+            <div
+              style={{
+                fontSize: "44px",
+                marginBottom: "16px"
+              }}
+            >
+              {item.icon}
+            </div>
 
-                  opacity: visible[i + 100] ? 1 : 0,
-                  transform: visible[i + 100]
-                    ? "translateY(0)"
-                    : "translateY(30px)",
-                  transition: "all 0.6s ease"
-                }}
-              >
-                <div
+            <h3
+              style={{
+                fontSize: "22px",
+                fontWeight: "800",
+                margin: "0 0 18px",
+                color: "#fbcfe8"
+              }}
+            >
+              ✨ {item.title}
+            </h3>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "11px"
+              }}
+            >
+              {item.desc.map((line, index) => (
+                <p
+                  key={index}
                   style={{
-                    fontSize: "12px",
-                    color: "#6366f1",
-                    marginBottom: "6px"
+                    margin: 0,
+                    fontSize: "14px",
+                    lineHeight: "1.75",
+                    color: "#e2e8f0"
                   }}
                 >
-                  {item.time}
-                </div>
-
-                <h3 style={{ marginBottom: "6px" }}>
-                  {item.title}
-                </h3>
-
-                <p style={{ fontSize: "13px", color: "#94a3b8" }}>
-                  {item.desc}
+                  {line}
                 </p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
