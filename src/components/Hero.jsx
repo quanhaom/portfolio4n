@@ -50,11 +50,11 @@ export default function Hero() {
           color: "#111"
         }}
       >
-        Nguyễn Thị A
+        Ngô Cẩm Nhung
       </h1>
 
       <h2 style={{ color: "#555", fontWeight: "normal" }}>
-        English Language Student
+        Trường Đại học Ngoại ngữ – Đại học Quốc gia Hà Nội
       </h2>
 
       {/* ================= MSSV + TRƯỜNG (TO HƠN) ================= */}
@@ -68,9 +68,6 @@ export default function Hero() {
         }}
       >
         <div>MSSV: 25040984</div>
-        <div>
-          Trường Đại học Ngoại ngữ – Đại học Quốc gia Hà Nội
-        </div>
       </div>
 
       {/* ================= DESCRIPTION ================= */}
