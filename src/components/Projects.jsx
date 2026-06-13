@@ -210,7 +210,7 @@ IV. Kết quả:
             WebkitTextFillColor: "transparent"
           }}
         >
-          AI Learning Projects
+         Bài học
         </h1>
         <p style={{ color: "#666" }}>
           Tổng hợp bài tập ứng dụng AI trong học tập
