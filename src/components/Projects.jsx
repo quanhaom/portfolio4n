@@ -107,91 +107,116 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* MODAL */}
-      {selectedIndex !== null && (
-        <div
-          onClick={closeModal}
+{selectedIndex !== null && (
+  <div
+    onClick={closeModal}
+    style={{
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,0.65)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 999
+    }}
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        width: "80%",          // 🔥 TO HƠN
+        maxWidth: "900px",
+        height: "80vh",        // 🔥 CAO HƠN
+        background: "#fff",
+        borderRadius: "16px",
+        padding: "25px",
+        position: "relative",
+        boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between"
+      }}
+    >
+      {/* ❌ CLOSE BUTTON (ĐẸP HƠN) */}
+      <button
+        onClick={closeModal}
+        style={{
+          position: "absolute",
+          top: "12px",
+          right: "12px",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          border: "none",
+          background: "#111",
+          color: "#fff",
+          fontSize: "18px",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "0.2s"
+        }}
+        onMouseOver={(e) => (e.target.style.background = "#444")}
+        onMouseOut={(e) => (e.target.style.background = "#111")}
+      >
+        ✕
+      </button>
+
+      {/* TITLE */}
+      <h2 style={{ marginBottom: "5px" }}>
+        {projects[selectedIndex]}
+      </h2>
+
+      <p style={{ color: "#666", fontSize: "14px" }}>
+        {descriptions[selectedIndex]}
+      </p>
+
+      {/* IMAGE VIEWER */}
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "15px"
+        }}
+      >
+        <button onClick={prev}>⬅</button>
+
+        <img
+          src={projectImages[selectedIndex][imgIndex]}
+          alt=""
           style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0,0,0,0.6)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
+            width: "100%",
+            maxHeight: "420px",
+            objectFit: "contain",
+            borderRadius: "12px"
           }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
+        />
+
+        <button onClick={next}>➡</button>
+      </div>
+
+      {/* DOTS */}
+      <div style={{ textAlign: "center", marginTop: "10px" }}>
+        {projectImages[selectedIndex].map((_, i) => (
+          <span
+            key={i}
+            onClick={() => setImgIndex(i)}
             style={{
-              width: "650px",
-              background: "#fff",
-              padding: "20px",
-              borderRadius: "12px",
-              textAlign: "center"
+              cursor: "pointer",
+              margin: "0 5px",
+              fontSize: "22px",
+              color: i === imgIndex ? "#000" : "#ccc"
             }}
           >
-            {/* TITLE */}
-            <h2>{projects[selectedIndex]}</h2>
-
-            {/* DESCRIPTION (PLACEHOLDER) */}
-            <p style={{ color: "#666", fontSize: "14px" }}>
-              {descriptions[selectedIndex]}
-            </p>
-
-            {/* SLIDER */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                marginTop: "15px"
-              }}
-            >
-              <button onClick={prev}>⬅</button>
-
-              <img
-                src={projectImages[selectedIndex][imgIndex]}
-                alt=""
-                style={{
-                  width: "420px",
-                  height: "260px",
-                  objectFit: "cover",
-                  borderRadius: "10px"
-                }}
-              />
-
-              <button onClick={next}>➡</button>
-            </div>
-
-            {/* DOTS */}
-            <div style={{ marginTop: "10px" }}>
-              {projectImages[selectedIndex].map((_, i) => (
-                <span
-                  key={i}
-                  onClick={() => setImgIndex(i)}
-                  style={{
-                    cursor: "pointer",
-                    margin: "0 4px",
-                    fontSize: "20px",
-                    color: i === imgIndex ? "#000" : "#ccc"
-                  }}
-                >
-                  ●
-                </span>
-              ))}
-            </div>
-
-            {/* CLOSE */}
-            <button
-              onClick={closeModal}
-              style={{ marginTop: "15px" }}
-            >
-              Đóng
-            </button>
-          </div>
-        </div>
-      )}
+            ●
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
