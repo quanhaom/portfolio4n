@@ -168,7 +168,38 @@ IV. Kết quả:
 - Bộ nguyên tắc AI cá nhân`
   ];
 
-  const popupImages = Array(6).fill(["img1", "img2", "img3"]);
+const popupImages = [
+  [
+    "/images/bai1-1.png",
+    "/images/bai1-2.png",
+    "/images/bai1-3.png"
+  ],
+  [
+    "/images/bai2-1.png",
+    "/images/bai2-2.png",
+    "/images/bai2-3.png"
+  ],
+  [
+    "/images/bai3-1.png",
+    "/images/bai3-2.png",
+    "/images/bai3-3.png"
+  ],
+  [
+    "/images/bai4-1.png",
+    "/images/bai4-2.png",
+    "/images/bai4-3.png"
+  ],
+  [
+    "/images/bai5-1.png",
+    "/images/bai5-2.png",
+    "/images/bai5-3.png"
+  ],
+  [
+    "/images/bai6-1.png",
+    "/images/bai6-2.png",
+    "/images/bai6-3.png"
+  ]
+];
 
   const colors = [
     "#6366f1",
