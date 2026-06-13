@@ -2,24 +2,173 @@ import { useState } from "react";
 
 export default function Projects() {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [imgIndex, setImgIndex] = useState(0);
 
   const projects = [
     "Bài tập 1: Thao tác cơ bản với tệp tin và thư mục",
     "Bài tập 2: Tìm kiếm và đánh giá thông tin học thuật",
     "Bài tập 3: Viết Prompt hiệu quả cho các tác vụ học tập",
-    "Bài tập 4: Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm",
-    "Bài tập 5: Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung",
-    "Bài tập 6: Sử dụng AI có trách nhiệm trong học tập và nghiên cứu"
+    "Bài tập 4: Công cụ hợp tác trực tuyến trong dự án nhóm",
+    "Bài tập 5: AI tạo sinh hỗ trợ sáng tạo nội dung",
+    "Bài tập 6: AI có trách nhiệm trong học tập và nghiên cứu"
   ];
 
-  const descriptions = [
-    ["Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục trên Windows/Linux."],
-    ["Phát triển kỹ năng tìm kiếm và đánh giá nguồn học thuật đáng tin cậy."],
-    ["Viết prompt hiệu quả để tối ưu mô hình AI trong học tập."],
-    ["Sử dụng công cụ online để làm việc nhóm hiệu quả."],
-    ["Ứng dụng AI tạo sinh trong sáng tạo nội dung số."],
-    ["Hiểu và áp dụng AI có trách nhiệm trong học tập."]
+  const cardPreview = [
+    ["File Explorer", "Copy / Move / Delete", "Windows cơ bản"],
+    ["Google Scholar", "Tài liệu học thuật", "Đánh giá nguồn"],
+    ["Prompt AI", "Viết prompt", "Tối ưu AI"],
+    ["Team tools", "Docs / Drive", "Làm việc nhóm"],
+    ["AI sáng tạo", "Text / Image", "Sản phẩm số"],
+    ["AI ethics", "AI có trách nhiệm", "Đạo đức học thuật"]
   ];
+
+  /* 🔥 GIỮ NGUYÊN 100% NỘI DUNG CỦA BẠN */
+  const popupContent = [
+`📌 BÀI 1 - THAO TÁC FILE
+
+I. Mục tiêu:
+
+- Thành thạo quản lý file trên Windows
+- Hiểu cấu trúc thư mục
+
+II. Nội dung:
+
+- File Explorer
+- Tạo folder
+- Copy / Move / Delete
+- Restore Recycle Bin
+
+III. Thực hành mở rộng:
+
+- Tạo 5 thư mục con
+- Sắp xếp dữ liệu khoa học
+- Chụp màn hình từng bước
+
+IV. Kết quả:
+
+- Nắm vững thao tác hệ điều hành
+- Tăng kỹ năng quản lý dữ liệu`,
+
+`📌 BÀI 2 - TÀI LIỆU HỌC THUẬT
+
+I. Mục tiêu:
+
+- Tìm kiếm và đánh giá nguồn tin
+
+II. Công cụ:
+
+- Google Scholar
+- IEEE / Springer
+- Thư viện số
+
+III. Tiêu chí đánh giá:
+
+- Tác giả
+- Năm xuất bản
+- Trích dẫn
+- Độ uy tín
+
+IV. Mở rộng:
+
+- So sánh 5 bài báo
+- Tạo bảng tổng hợp
+
+V. Kết quả:
+
+- 10+ tài liệu học thuật`,
+
+`📌 BÀI 3 - PROMPT ENGINEERING
+
+I. Mục tiêu:
+
+- Tối ưu giao tiếp với AI
+
+II. Kỹ thuật:
+
+- Role prompting
+- Few-shot prompting
+- Chain-of-thought
+
+III. Thực hành:
+
+- 3 prompt cho mỗi nhiệm vụ
+- So sánh output
+
+IV. Kết quả:
+
+- Hiểu cách AI phản hồi tốt hơn`,
+
+`📌 BÀI 4 - LÀM VIỆC NHÓM
+
+I. Công cụ:
+
+- Trello
+- Notion
+- Google Docs
+- Discord
+
+II. Hoạt động:
+
+- Phân chia task
+- Theo dõi tiến độ
+- Thảo luận realtime
+
+III. Minh chứng:
+
+- Screenshot đóng góp
+- Lịch sử chỉnh sửa
+
+IV. Kết quả:
+
+- Quản lý dự án hiệu quả`,
+
+`📌 BÀI 5 - AI SÁNG TẠO
+
+I. Công cụ:
+
+- ChatGPT
+- Midjourney
+- Canva AI
+
+II. Quy trình:
+
+- Lên ý tưởng
+- Tạo nội dung
+- Thiết kế sản phẩm
+
+III. Mở rộng:
+
+- Tạo infographic
+- Video ngắn AI
+
+IV. Kết quả:
+
+- Sản phẩm sáng tạo hoàn chỉnh`,
+
+`📌 BÀI 6 - AI CÓ TRÁCH NHIỆM
+
+I. Nội dung:
+
+- Đạo đức AI
+- Minh bạch sử dụng AI
+- Tránh gian lận học thuật
+
+II. Phân tích:
+
+- Ranh giới hỗ trợ vs gian lận
+- Quyền sở hữu trí tuệ
+- Tác động học tập
+
+III. Nguyên tắc cá nhân:
+
+- 5–7 quy tắc sử dụng AI
+
+IV. Kết quả:
+
+- Bộ nguyên tắc AI cá nhân`
+  ];
+
+  const popupImages = Array(6).fill(["img1", "img2", "img3"]);
 
   const colors = [
     "#6366f1",
@@ -30,19 +179,50 @@ export default function Projects() {
     "#8b5cf6"
   ];
 
+  const openPopup = (i) => {
+    setSelectedIndex(i);
+    setImgIndex(0);
+  };
+
+  const nextImg = () => {
+    setImgIndex((p) =>
+      p < popupImages[selectedIndex].length - 1 ? p + 1 : 0
+    );
+  };
+
+  const prevImg = () => {
+    setImgIndex((p) =>
+      p > 0 ? p - 1 : popupImages[selectedIndex].length - 1
+    );
+  };
+
   return (
-    <div style={{ padding: "60px 40px" }}>
-      {/* HEADER */}
-      <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
-        Dự Án Học Tập
-      </h2>
+    <>
+      {/* HEADER PAGE */}
+      <div style={{ textAlign: "center", margin: "40px 0 30px" }}>
+        <h1
+          style={{
+            fontSize: "34px",
+            fontWeight: "800",
+            background:
+              "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}
+        >
+          AI Learning Projects
+        </h1>
+        <p style={{ color: "#666" }}>
+          Tổng hợp bài tập ứng dụng AI trong học tập
+        </p>
+      </div>
 
       {/* GRID */}
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "25px",
+          gap: "24px",
           maxWidth: "1200px",
           margin: "0 auto"
         }}
@@ -50,52 +230,46 @@ export default function Projects() {
         {projects.map((title, i) => (
           <div
             key={i}
-            onClick={() => setSelectedIndex(i)}
+            onClick={() => openPopup(i)}
             style={{
               background: "#fff",
-              borderRadius: "16px",
-              boxShadow: "0 8px 25px rgba(0,0,0,0.10)",
+              borderRadius: "20px",
               cursor: "pointer",
-              minHeight: "280px",
+              minHeight: "270px",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
               overflow: "hidden"
             }}
           >
-            {/* HEADER COLOR */}
             <div
               style={{
                 background: colors[i],
-                color: "white",
+                color: "#fff",
                 padding: "14px",
-                fontWeight: "bold"
+                fontWeight: "600"
               }}
             >
               {title}
             </div>
 
-            {/* BODY */}
-            <div style={{ padding: "18px" }}>
-              <ul style={{ paddingLeft: "18px", color: "#444", lineHeight: "1.7" }}>
-                {descriptions[i].map((item, idx) => (
-                  <li key={idx}>{item}</li>
+            <div style={{ padding: "16px" }}>
+              <ul style={{ paddingLeft: "18px", color: "#444" }}>
+                {cardPreview[i].map((x, idx) => (
+                  <li key={idx}>{x}</li>
                 ))}
               </ul>
-
-              <p style={{ fontSize: "12px", color: "#888", marginTop: "10px" }}>
-                Click để mở trang →
-              </p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* ================= POPUP MODAL (FIXED BIG SIZE) ================= */}
+      {/* POPUP */}
       {selectedIndex !== null && (
         <div
           onClick={() => setSelectedIndex(null)}
           style={{
             position: "fixed",
             inset: 0,
-            background: "rgba(0,0,0,0.6)",
+            background: "rgba(0,0,0,0.65)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -105,50 +279,84 @@ export default function Projects() {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              width: "90vw",
-              height: "90vh",
+              width: "85vw",
+              height: "85vh",
               background: "#fff",
               borderRadius: "18px",
               padding: "30px",
               overflowY: "auto",
-              boxShadow: "0 25px 80px rgba(0,0,0,0.35)",
               position: "relative"
             }}
           >
-            {/* CLOSE BUTTON */}
             <button
               onClick={() => setSelectedIndex(null)}
               style={{
                 position: "absolute",
-                top: "15px",
-                right: "15px",
-                width: "40px",
-                height: "40px",
+                top: 15,
+                right: 15,
+                width: 40,
+                height: 40,
                 borderRadius: "50%",
                 border: "none",
-                cursor: "pointer",
                 background: "#111",
-                color: "#fff",
-                fontSize: "18px"
+                color: "#fff"
               }}
             >
               ✕
             </button>
 
-            {/* TITLE */}
-            <h2 style={{ marginBottom: "15px" }}>
+            <h1
+              style={{
+                fontSize: "26px",
+                fontWeight: "800",
+                background:
+                  "linear-gradient(90deg,#6366f1,#ec4899,#06b6d4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent"
+              }}
+            >
               {projects[selectedIndex]}
-            </h2>
+            </h1>
 
-            {/* DESCRIPTION */}
-            <ul style={{ color: "#444", lineHeight: "1.8", fontSize: "15px" }}>
-              {descriptions[selectedIndex].map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
+            {/* 🔥 GIỮ NGUYÊN FULL CONTENT */}
+            <pre
+              style={{
+                whiteSpace: "pre-wrap",
+                fontSize: "15px",
+                color: "#333"
+              }}
+            >
+              {popupContent[selectedIndex]}
+            </pre>
+
+            <div style={{ marginTop: "30px", textAlign: "center" }}>
+              <h4>Hình minh hoạ</h4>
+
+              <div style={{ display: "flex", justifyContent: "center", gap: 10 }}>
+                <button onClick={prevImg}>⬅</button>
+
+                <div
+                  style={{
+                    width: "200px",
+                    height: "110px",
+                    border: "1px dashed #ccc",
+                    borderRadius: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "12px",
+                    color: "#888"
+                  }}
+                >
+                  {popupImages[selectedIndex][imgIndex]}
+                </div>
+
+                <button onClick={nextImg}>➡</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
